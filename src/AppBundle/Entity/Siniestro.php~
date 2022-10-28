@@ -1,0 +1,54 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Siniestro
+ *
+ * @ORM\Table(name="Siniestro")
+ * @ORM\Entity
+ */
+class Siniestro
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idSiniestro", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idsiniestro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipoSiniestro", type="string", length=45, nullable=false)
+     */
+    private $tiposiniestro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcionSiniestro", type="string", length=150, nullable=false)
+     */
+    private $descripcionsiniestro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estadoSiniestro", type="string", length=10, nullable=true)
+     */
+    private $estadosiniestro = '\'Activo\'';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaSiniestro", type="datetime", nullable=true)
+     */
+    private $fechasiniestro = 'current_timestamp()';
+
+
+}
+

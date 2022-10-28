@@ -1,0 +1,8 @@
+## YAML Template.
+ws_sisa:
+    path: /
+    defaults: { _controller: AppBundle:Default:index }
+    
+ws_sisa_alumno:
+    path: /info/infobuild
+    defaults: { _controller: AppBundle:Default:getInfoBuilding }

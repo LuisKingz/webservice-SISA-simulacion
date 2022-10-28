@@ -1,0 +1,68 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Alumno
+ *
+ * @ORM\Table(name="alumno")
+ * @ORM\Entity
+ */
+class Alumno
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matricula", type="string", length=50, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $matricula = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apellido_paterno", type="string", length=50, nullable=true)
+     */
+    private $apellidoPaterno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apellido_materno", type="string", length=50, nullable=true)
+     */
+    private $apellidoMaterno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="carrera", type="string", length=50, nullable=true)
+     */
+    private $carrera;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grupo", type="string", length=50, nullable=true)
+     */
+    private $grupo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="divisionAcademica", type="string", length=100, nullable=true)
+     */
+    private $divisionacademica;
+
+
+}
+

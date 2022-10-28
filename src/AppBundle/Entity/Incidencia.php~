@@ -1,0 +1,67 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Incidencia
+ *
+ * @ORM\Table(name="Incidencia", indexes={@ORM\Index(name="id_siniestro", columns={"id_siniestro"}), @ORM\Index(name="id_espacioFisico", columns={"id_espacioFisico"})})
+ * @ORM\Entity
+ */
+class Incidencia
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idIncidencia", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idincidencia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcionIncidencia", type="string", length=200, nullable=false)
+     */
+    private $descripcionincidencia;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaIncidencia", type="datetime", nullable=true)
+     */
+    private $fechaincidencia = 'current_timestamp()';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estadoIncidencia", type="string", length=20, nullable=true)
+     */
+    private $estadoincidencia = '\'Pendiente\'';
+
+    /**
+     * @var \Siniestro
+     *
+     * @ORM\ManyToOne(targetEntity="Siniestro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_siniestro", referencedColumnName="idSiniestro")
+     * })
+     */
+    private $idSiniestro;
+
+    /**
+     * @var \Espaciofisico
+     *
+     * @ORM\ManyToOne(targetEntity="Espaciofisico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_espacioFisico", referencedColumnName="idEspacioFisico")
+     * })
+     */
+    private $idEspaciofisico;
+
+
+}
+

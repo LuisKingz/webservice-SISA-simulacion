@@ -1,0 +1,50 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Fotoinmueble
+ *
+ * @ORM\Table(name="FotoInmueble", indexes={@ORM\Index(name="id_inmueble", columns={"id_inmueble"})})
+ * @ORM\Entity
+ */
+class Fotoinmueble
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idFotoInmueble", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idfotoinmueble;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombreFotoInmueble", type="string", length=500, nullable=true)
+     */
+    private $nombrefotoinmueble = 'NULL';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fotoInmueble", type="blob", nullable=false)
+     */
+    private $fotoinmueble;
+
+    /**
+     * @var \Inmueble
+     *
+     * @ORM\ManyToOne(targetEntity="Inmueble")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_inmueble", referencedColumnName="idInmueble")
+     * })
+     */
+    private $idInmueble;
+
+
+}
+
